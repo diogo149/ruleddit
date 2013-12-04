@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="recipes">
+  <head>
+    <title>Ruleddit - News For The Productive</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+  </head>
+
+  <body ng-controller="RecipesController">
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="navbar-brand" href="#">Ruleddit</a>
+          <a class="navbar-brand" href="echo">Edit</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <ul class="nav nav-pills pull-left">
+        <li ng-class="{active: category == 'bacon'}">
+          <a href="#" ng-click="loadRecipes('bacon')">Bacon</a>
+        </li>
+        <li ng-class="{active: category == 'omelette'}">
+          <a href="#" ng-click="loadRecipes('omelette')">Omelette</a>
+        </li>
+        <li ng-class="{active: category == 'quiche'}">
+          <a href="#" ng-click="loadRecipes('quiche')">Quiche</a>
+        </li>
+        <li ng-class="{active: category == 'chicken'}">
+          <a href="#" ng-click="loadRecipes('chicken')">Chicken</a>
+        </li>
+        <li ng-class="{active: category == 'lobster'}">
+          <a href="#" ng-click="loadRecipes('lobster')">Lobster</a>
+        </li>
+      </ul>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Ingredients</th>
+          </tr>
+        </thead>
+        <tr ng-repeat="recipe in recipes">
+          <td><a href="{{recipe.href}}" target="_blank">{{recipe.title}}</a></td>
+          <td>{{recipe.ingredients}}</td>
+        </tr>
+      </table>
+
+    </div> <!-- /container -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
